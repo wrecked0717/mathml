@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from manim import *
-from math import factorial  # Import the factorial function
+from math import factorial
 
 class EulerFormula(Scene):
     def construct(self):
@@ -28,7 +28,8 @@ class EulerFormula(Scene):
         self.play(Create(highlight_box))
         self.wait(2)
 
-        # Transition to showing e
-        e_value = MathTex("e = 2.71828...").next_to(formula, DOWN)
+        # Transition to showing e with extra space
+        e_value = MathTex("e = 2.71828...").next_to(formula, RIGHT, buff=1)
         self.play(ReplacementTransform(formula, e_value))
         self.wait(3)
+
