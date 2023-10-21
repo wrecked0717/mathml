@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+
+from manim import *
+
+class EulersConstant(Scene):
+    def construct(self):
+        # Display the series with a specific size
+        formula = MathTex(r"y = mx + b").scale(2.4)
+        formula_with_xray = formula.copy()
+        formula_with_xray.set_stroke(color=YELLOW, width=2)
+        self.play(Create(formula), Create(formula_with_xray), run_time=2.5)
+        self.wait(1.5)
