@@ -18,7 +18,7 @@ from manim import *
 class OpeningManim(Scene):
     def construct(self):
         title = Tex(r"This is some \LaTeX")
-        basel = MathTex(r"\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}")
+        basel = MathTex(r"\sum_{k=0}^{\infty}\frac{1}{k!}")
         VGroup(title, basel).arrange(DOWN)
         self.play(
             Write(title),
