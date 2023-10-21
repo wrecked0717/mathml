@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+from manim import *
+from math import factorial
+
+class EulersConstant(Scene):
+    def construct(self):
+        # Display the formula with a specific scale
+        formula = MathTex(r"\sum_{k=0}^{\infty}\frac{1}{k!} = e", tex_to_color_map={"e": YELLOW}).scale(2).to_edge(UP)
+        self.play(Create(formula), run_time=2.5)
+        self.wait(1)
+
+        # Display the terms for k = 0 to k = 30
+        terms = MathTex(r"\sum_{k=0}^{30}\frac{1}{k!}").next_to(formula, DOWN, buff=0.5)
+        terms_with_values = MathTex("= 1 + 1 + \\frac{1}{2} + \\frac{1}{6} + \\frac{1}{24} + \\frac{1}{120} + \\frac{1}{720} + \\frac{1}{5040} + \\frac{1}{40320} + \\frac{1}{362880} + \\frac{1}{3628800} + \\frac{1}{39916800} + \\frac{1}{479001600} + \\frac{1}{6227020800} + \\frac{1}{87178291200} + \\frac{1}{1307674368000} + \\frac{1}{20922789888000} + \\frac{1}{355687428096000} + \\frac{1}{6402373705728000} + \\frac{1}{121645100408832000} + \\frac{1}{2432902008176640000} + \\frac{1}{51090942171709440000} + \\frac{1}{1124000727777607680000} + \\frac{1}{25852016738884976640000} + \\frac{1}{620448401733239439360000} + \\frac{1}{15511210043380985984000000} + \\frac{1}{403291461126605635584000000} + \\frac{1}{10888869450418352160768000000} + \\frac{1}{304888344611713860501504000000} + \\frac{1}{8841761993739701954543616000000} + \\frac{1}{265252859812191058636308480000000}").next_to(terms, DOWN, buff=0.5)
+
+        self.play(Create(terms), Create(terms_with_values), run_time=5)
+        self.wait(2)
+
+        # Transition to showing e with the numerical value
+        e_value = MathTex("e = 2.71828...").next_to(terms_with_values, DOWN, buff=0.5)
+        self.play(ReplacementTransform(terms_with_values, e_value), run_time=2.5)
+        self.wait(2)
