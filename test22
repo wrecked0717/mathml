@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+
+from manim import *
+from math import factorial
+
+class EulersConstant(Scene):
+    def construct(self):
+        # Display the formula with a specific scale
+        formula = MathTex(r"\sum_{k=0}^{\infty}\frac{1}{k!} = e", tex_to_color_map={"e": YELLOW}).scale(2).to_edge(UP)
+        self.play(Create(formula), run_time=2.5)
+        self.wait(1)
+
+        # Display the terms for k = 0 to k = 30
+        terms = MathTex("1", "+", r"\frac{1}{1!}", "+", r"\frac{1}{2!}", "+", r"\frac{1}{3!}", "+", r"\frac{1}{4!}",
+                        "+", r"\frac{1}{5!}", "+", r"\frac{1}{6!}", "+", r"\frac{1}{7!}", "+", r"\frac{1}{8!}",
+                        "+", r"\frac{1}{9!}", "+", r"\frac{1}{10!}", "+", r"\frac{1}{11!}", "+", r"\frac{1}{12!}",
+                        "+", r"\frac{1}{13!}", "+", r"\frac{1}{14!}", "+", r"\frac{1}{15!}", "+", r"\frac{1}{16!}",
+                        "+", r"\frac{1}{17!}", "+", r"\frac{1}{18!}", "+", r"\frac{1}{19!}", "+", r"\frac{1}{20!}",
+                        "+", r"\frac{1}{21!}", "+", r"\frac{1}{22!}", "+", r"\frac{1}{23!}", "+", r"\frac{1}{24!}",
+                        "+", r"\frac{1}{25!}", "+", r"\frac{1}{26!}", "+", r"\frac{1}{27!}", "+", r"\frac{1}{28!}",
+                        "+", r"\frac{1}{29!}", "+", r"\frac{1}{30!}").next_to(formula, DOWN, buff=0.5)
+
+        self.play(Create(terms), run_time=5)
+        self.wait(2)
+
+        # Transition to showing e with the numerical value
+        e_value = MathTex("e = 2.71828...").next_to(terms, DOWN, buff=0.5)
+        self.play(ReplacementTransform(terms, e_value), run_time=2.5)
+        self.wait(2)
