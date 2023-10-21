@@ -8,3 +8,4 @@ class EulersConstant(Scene):
         # Display the series
         formula = MathTex(r"\frac{\sum_{k=0}^{\infty}\frac{z-1+k}{k!}}{z}")
         self.play(Create(formula))
+self.wait(3)
