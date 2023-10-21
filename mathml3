@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from manim import *
+from math import factorial  # Import the factorial function
 
 class EulerFormula(Scene):
     def construct(self):
