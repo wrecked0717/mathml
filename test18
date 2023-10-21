@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+
+from manim import *
+
+class EulersConstant(Scene):
+    def construct(self):
+        # Display the series with a specific scale
+        formula = MathTex(r"\frac{\sum_{k=0}^{\infty}\frac{z-1+k}{k!}}{z} = e", tex_to_color_map={"e": YELLOW}).scale(2)
+        self.play(Create(formula), run_time=2.5)
+        self.wait(1)
+        
+        # Transition to showing e with the numerical value
+        e_value = MathTex("e = 2.71828...").next_to(formula, DOWN)
+        self.play(ReplacementTransform(formula, e_value), run_time=2.5)
+        self.wait(2)
